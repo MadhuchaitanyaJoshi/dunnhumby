@@ -1,0 +1,43 @@
+{
+    "retail": {
+      "cust": {
+        "maskcolumns": {
+          "cid": "cid",
+          "productid": "productid",
+          "storeid": "storeid"
+        },
+		
+		"fraction": 1.0,
+
+		"inputInfo":{
+		  "inengine":"postgres",
+          "url_connect": "jdbc:postgresql://localhost:5432/retail",
+          "user": "postgres",
+          "password": "postgres",
+          "driver": "org.postgresql.Driver"
+
+		
+		},
+		"outInfo":{
+		  "outengine":"postgres",
+		  "outdb": "retail",
+		  "outtable": "cust_masked",
+		  "mode": "append",
+          "url_connect": "jdbc:postgresql://localhost:5432/retail",
+          "user": "postgres",
+          "password": "postgres",
+          "driver": "org.postgresql.Driver"
+
+		},
+        "error_log": {
+          "errorengine": "postgres",
+          "table": "cust",
+          "mode": "append",
+          "url_connect": "jdbc:postgresql://localhost:5432/retail",
+          "user": "postgres",
+          "password": "postgres",
+          "driver": "org.postgresql.Driver"
+        }
+      }
+    }
+}
