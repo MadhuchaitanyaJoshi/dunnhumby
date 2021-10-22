@@ -29,7 +29,7 @@ errordf = errordf.withColumn("errortime",to_timestamp(errordf.errortime,'MM-dd-y
 print(errordf.show())
 print(errordf.printSchema())
 url_connect = "jdbc:postgresql://localhost:5432/retail"
-table = "cust"
+table = "error_log"
 mode = "append"
 properties = {"user": "postgres","password": "postgres","driver": "org.postgresql.Driver"}
 errordf.write.option('driver', 'org.postgresql.Driver').jdbc(url_connect, table, mode, properties)

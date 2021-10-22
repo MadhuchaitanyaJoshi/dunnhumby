@@ -1,5 +1,4 @@
-{
-    "retail": {
+{    "retail": {
       "cust": {
         "maskcolumns": {
           "cid": "cid",
@@ -31,12 +30,102 @@
 		},
         "error_log": {
           "errorengine": "postgres",
-          "table": "cust",
+          "table": "error_log",
           "mode": "append",
+          "errordb" : "retail",
           "url_connect": "jdbc:postgresql://localhost:5432/retail",
           "user": "postgres",
           "password": "postgres",
           "driver": "org.postgresql.Driver"
+        }
+      }
+    },
+	    "retail_hive": {
+      "cust": {
+        "maskcolumns": {
+          "cid": "cid",
+          "productid": "productid",
+          "storeid": "storeid"
+        },
+		
+		"fraction": 1.0,
+
+		"inputInfo":{
+		  "inengine":"hive",
+          "url_connect": "",
+          "user": "",
+          "password": "",
+          "driver": ""
+
+		
+		},
+		"outInfo":{
+		  "outengine":"hive",
+		  "outdb": "retail_hive",
+		  "outtable": "cust_masked_hive",
+		  "mode": "append",
+          "url_connect": "",
+          "user": "",
+          "password": "",
+          "driver": ""
+
+		},
+        "error_log": {
+          "errorengine": "hive",
+		  "errordb" : "retail_hive",
+          "table": "error_log",
+          "mode": "append",
+          "url_connect": "",
+          "user": "",
+          "password": "",
+          "driver": ""
+        }
+      }
+    },
+
+	 "retail_bigquery": {
+      "cust": {
+        "maskcolumns": {
+          "cid": "cid",
+          "productid": "productid",
+          "storeid": "storeid"
+        },
+		
+		"fraction": 1.0,
+
+		"inputInfo":{
+		  "inengine":"bigquery",
+          "url_connect": "",
+          "user": "",
+          "password": "",
+          "driver": "",
+          "bucket": "bucket_name",
+          "project": "in_project"
+		
+		},
+		"outInfo":{
+		  "outengine":"bigquery",
+		  "outdb": "",
+		  "outtable": "cust_masked_bigquery",
+		  "mode": "append",
+          "url_connect": "",
+          "user": "",
+          "password": "",
+          "driver": "",
+          "bucket": "out_bucket_name",
+          "project": "out_project"
+
+		},
+        "error_log": {
+          "errorengine": "bigquery",
+		  "errordb" : "retail_bigquery",
+          "table": "error_log",
+          "mode": "append",
+          "url_connect": "",
+          "user": "",
+          "password": "",
+          "driver": "",
+		  "project" : "project"
         }
       }
     }

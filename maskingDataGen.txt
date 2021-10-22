@@ -37,7 +37,7 @@ def hiveWriteTable(sampledf,out_db,out_table,out_mode):
 def postgresWriteTable(sampledf,out_url_connect, out_user, out_password, out_driver,out_mode,out_table):
     properties = {"user": out_user, "password": out_password, "driver": out_driver}
     print("----------->",in_table,table)
-    sampledf.write.option('driver', out_driver).jdbc(out_url_connect, out_table, out_mode, properties)
+    sampledf.write.option('driver', in_driver).jdbc(out_url_connect, out_table, out_mode, properties)
 
 
 def bigqueryWriteTable(sampledf,out_table):
