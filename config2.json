@@ -1,0 +1,14 @@
+{
+  "retail": {
+    "cust": {
+      "maskcolumns": {
+        "cid": "cid",
+        "productid": "productid",
+        "storeid": "storeid"
+      },
+      "fraction": 0.3,
+      "outtable": "cust_masked"
+    },
+    "outdb": "retail2"
+  }
+}
