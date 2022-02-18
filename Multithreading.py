@@ -25,20 +25,29 @@ def readFiles1(path):
                        "org.postgresql.Driver", "append", "threadingData")
 
 spark.sparkContext.setLocalProperty("spark.scheduler.pool", "production")
-with f.ThreadPoolExecutor(max_workers=5) as executor:
+with f.ThreadPoolExecutor(max_workers=1) as executor:
     paths = ["C:/Users/mjoshi\mydata/tennis/tournaments_1877-2017_unindexed_csv.csv","C:/Users/mjoshi/mydata/tennis/match_scores_1877-1967_unindexed_csv.csv"
              ,"C:/Users/mjoshi/mydata/tennis/match_scores_1968-1990_unindexed_csv.csv","C:/Users/mjoshi/mydata/tennis/match_scores_1991-2016_unindexed_csv.csv"]
     executor.map(readFiles1,paths)
-for path in paths:
-    readFiles1(path)
-time.sleep(999999)
+# paths = ["C:/Users/mjoshi\mydata/tennis/tournaments_1877-2017_unindexed_csv.csv","C:/Users/mjoshi/mydata/tennis/match_scores_1877-1967_unindexed_csv.csv"
+#              ,"C:/Users/mjoshi/mydata/tennis/match_scores_1968-1990_unindexed_csv.csv","C:/Users/mjoshi/mydata/tennis/match_scores_1991-2016_unindexed_csv.csv"]
+# for path in paths:
+#     readFiles1(path)
+# time.sleep(999999)
 
 
 
-#paths = ["C:/Users/mjoshi\mydata/tennis/tournaments_1877-2017_unindexed_csv.csv",
+# paths = ["C:/Users/mjoshi\mydata/tennis/tournaments_1877-2017_unindexed_csv.csv",
 #          "C:/Users/mjoshi/mydata/tennis/match_scores_1877-1967_unindexed_csv.csv"
 #     , "C:/Users/mjoshi/mydata/tennis/match_scores_1968-1990_unindexed_csv.csv",
 #          "C:/Users/mjoshi/mydata/tennis/match_scores_1991-2016_unindexed_csv.csv"]
 # for i in paths:
 #     readFiles1(i)
 # time.sleep(999999)
+
+#     sampledf = sampledf.withColumn(conf[db][table]["maskcolumns"][colm[0]],
+#                                    when(sampledf[colm[0]].isNotNull, abs(hash(sampledf[colm[0]]))).otherwise(
+#                                        hash(sampledf[colm[0]])))
+# if (colm[0] in mstcols and colm[1] == "string"):
+#     print("27------------", basecol[colm[0]])
+#     sampledf = sampledf.withColumn(basecol[colm[0]], sha2((sampledf[colm[0]]), 256))

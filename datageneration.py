@@ -8,9 +8,9 @@ spark = SparkSession(sc)
 spark.sparkContext.setLogLevel("WARN")
 arg = sys.argv
 try:
-    with open(arg[2],"r") as mstcolumns:
+    with open("C:/Users/mjoshi/PycharmProjects/pythonProject/masterColumns2.txt","r") as mstcolumns:
         mstcols = mstcolumns.read().split(",")
-    with open(arg[1],"r") as config:
+    with open("C:/Users/mjoshi/PycharmProjects/pythonProject/config2.json","r") as config:
         conf = json.load(config)
         # print(conf["retail"]["cust"])
     for db in conf:

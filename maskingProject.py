@@ -126,9 +126,11 @@ for obj in ls:
         for colm in cols:
             basecol = obj.maskedcolumns
             if colm[0] in mstcols and colm[1] == "int":
+                print("int column",colm[0])
                 sampledf = sampledf.withColumn(basecol[colm[0]],
                                             when(hash(sampledf[colm[0]]) < 0,
                                                 hash(sampledf[colm[0]]) * -1).otherwise(hash(sampledf[colm[0]])))
+                print(sampledf.show())
             if colm[0] in mstcols and colm[1] == "string":
                 sampledf = sampledf.withColumn(basecol[colm[0]], sha2((sampledf[colm[0]]), 256))
         if(outengine=='postgres'):
